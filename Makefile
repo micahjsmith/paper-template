@@ -1,4 +1,4 @@
-.DEFAULT_TARGET := help
+.DEFAULT_GOAL := help
 
 MAIN=main
 
