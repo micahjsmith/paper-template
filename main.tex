@@ -1,7 +1,7 @@
 \documentclass[conference,a4paper]{article}
 %\documentclass[conference,a4paper]{IEEEtran}
 
-% *** GRAPHICS RELATED PACKAGES ***
+% Graphics packages (must be loaded first)
 \usepackage[pdftex]{graphicx}
 \graphicspath{{figures/}}
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
@@ -10,18 +10,33 @@
 \usepackage{algorithmic}
 \usepackage{amsmath}
 \usepackage{array}
-\usepackage{cite}
-\usepackage{url}
+\usepackage[hyphens]{url}
 \usepackage[caption=false,font=footnotesize]{subfig}
 
 % Other packages
+\usepackage[export]{adjustbox}
+\usepackage{afterpage}
+\usepackage{bbding}
 \usepackage{booktabs}
 \usepackage{caption}
-\usepackage{cleveref}
-\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{framed}
 \usepackage{listings}
-\usepackage{soul}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{tabularx}
 \usepackage{threeparttable}
+
+% references
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linktocpage=true,
+    linkcolor=blue,
+    citecolor=blue
+}
+\usepackage{cleveref}
 
 % listings setup
 \usepackage{color}
@@ -32,33 +47,31 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{mystyle}{
-    %backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    %keywordstyle=\color{codeorange},
-    keywordstyle=\bfseries\color{blue},
-    %numberstyle=\tiny\color{codegray},
-    numberstyle=\small,
-    %stringstyle=\color{codepurple},
-    stringstyle=\color{red},
-    %basicstyle=\footnotesize\ttfamily,
-    basicstyle=\small\ttfamily,
-    breakatwhitespace=false,         
-    breaklines=true,                 
     %prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}, % hook-arrow at the end of break-line
+    basicstyle=\linespread{0.8}\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{codegreen},
+    escapeinside={@\{}{\}@},
+    firstnumber=1,
+    frame=single,
+    keepspaces=true,
+    keywordstyle=\bfseries\color{blue},
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\small\color{codegray},
     prebreak={\space\hbox{\textcolor{codegray}{\ensuremath{\hookleftarrow}}}},
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
+    stepnumber=1,
+    stringstyle=\color{red},
     tabsize=4,
+    upquote=true,
     xleftmargin=5pt,
-    escapechar=@ % for manual formatting, e.g. @\\@ for manual break line
 }
 \lstset{style=mystyle}
-
 
 \author{
     Micah J. Smith\\
