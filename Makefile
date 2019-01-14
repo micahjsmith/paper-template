@@ -48,3 +48,8 @@ images/logos/MIT-logo-red-gray.eps:
 	-rm -r images/logos/MIT-logos-print
 	-rm -r images/logos/__MACOSX
 	-rm images/logos/MIT-logos-print.zip
+
+.PHONY: examples
+examples: main poster
+	test -d examples || mkdir examples
+	cp main.pdf poster.pdf examples
