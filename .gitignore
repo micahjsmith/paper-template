@@ -228,3 +228,7 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# other
+.DS_Store
+images/logos/

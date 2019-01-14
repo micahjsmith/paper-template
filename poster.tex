@@ -1,0 +1,131 @@
+\documentclass[final]{beamer}
+
+% This loads the beamerthemeDAI.sty file, which you can adapt as necessary for your poster.
+\mode<presentation>{
+    \usetheme{DAI}
+}
+
+% As a quick reference, these are the possible fontsizes that you can use in the poster:
+%   \tiny, \scriptsize, \footnotesize, \normalsize, \large, \Large, \LARGE, \veryHuge,
+%   \VeryHuge, \VERYHuge
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usefonttheme[onlymath]{serif}
+\boldmath
+\usepackage[size=custom,width=90,height=120,scale=1.24,debug]{beamerposter}
+
+\usepackage{array,booktabs,tabularx}
+\newcolumntype{Z}{>{\centering\arraybackslash}X} % centered tabularx columns
+\newcommand{\pphantom}{\textcolor{mitred}} % phantom introduces a vertical space in p formatted table columns??!!
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usepackage[caption=false,font=footnotesize]{subfig}
+
+%\usepackage[labelformat=empty,font={normalsize}]{caption}
+\usepackage[labelformat=simple,labelfont={normalsize},font={normalsize}]{caption}
+
+\usepackage{xcolor}
+\usepackage{upquote}
+\usepackage{listings} % don't forget [fragile] option after \begin{frame}
+
+% listings setup
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeorange}{rgb}{0,0.1,1}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstset{
+    basicstyle=\scriptsize\ttfamily,
+    backgroundcolor=\color{backcolour},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{codegreen},
+    escapeinside={@\{}{\}@},
+    firstnumber=1,
+    frame=single,
+    frameround=tttt,
+    keepspaces=true,
+    keywordstyle=\bfseries\color{codepurple},
+    numbers=none,
+    numbersep=5pt,
+    numberstyle=\small\color{codegray},
+    % prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}, % hook-arrow at the end of break-line
+    % prebreak={\space\hbox{\textcolor{codegray}{\ensuremath{\hookleftarrow}}}},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stepnumber=1,
+    stringstyle=\color{codegreen},
+    tabsize=4,
+    upquote=true,
+    xleftmargin=5pt,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{figures/},{images/}}
+
+\setlogo{images/logos/MIT-logo-red-gray}
+\setauthorurl{https://dai.lids.mit.edu}
+\setauthoremail{micahs@mit.edu}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note [short version of thing]{long version of thing}
+
+\title[Ttl]{Title}
+\author[Smith]{Micah J. Smith}
+\institute[MIT]{Massachusetts Institute of Technology}
+\date{Date}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{columns}[T]
+
+    \begin{column}{.47\textwidth}
+
+            \begin{block}{Introduction and Motivation}
+                Blah \cite{whitehead1912principia}
+            \end{block}
+
+
+            \begin{block}{Block}
+                Blah
+            \end{block}
+
+    \end{column}
+
+    \begin{column}{.47\textwidth}
+
+            \begin{block}{Block}
+                Blah
+            \end{block}
+
+            \begin{block}{Block}
+                Blah
+            \end{block}
+
+            \begin{block}{Block}
+                Text
+            \end{block}
+
+            \begin{block}{References}
+                \footnotesize
+                \bibliographystyle{abbrv}
+                \bibliography{references.bib}
+            \end{block}
+
+    \end{column}
+
+\end{columns}
+\end{frame}
+
+\end{document}
