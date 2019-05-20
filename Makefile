@@ -15,7 +15,7 @@ help:
 
 .PHONY: main
 main:
-	latexmk -pdf $@
+	latexmk -output-directory=_build -deps -deps-out=_build/$@.deps -pdf $@
 
 .PHONY: poster
 poster: logo
@@ -27,6 +27,7 @@ clean: _clean-main _clean-poster
 .PHONY: _clean-main
 _clean-main:
 	latexmk -quiet -C main
+	cd _build && latexmk -quiet -C ../main
 
 .PHONY: _clean-poster
 _clean-poster:
