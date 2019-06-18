@@ -7,6 +7,7 @@ help:
 	@echo "make help"
 	@echo "    main: compile main.pdf"
 	@echo "    poster: compile poster.pdf"
+	@echo "    arxiv: prepare arXiv submission file"
 	@echo "    clean: clean LaTeX build files"
 	@echo
 	@echo "    *Note*: uses \`latexmk' for compilation management. Please install latexmk"
@@ -20,6 +21,14 @@ main:
 .PHONY: poster
 poster: logo
 	latexmk -pdf $@
+
+.PHONY: arxiv
+arxiv: main
+	-rm -rf arxiv
+	mkdir arxiv
+	./arxiv.py
+	$(MAKE) -C arxiv main
+	tar -c -z -f submission.tar.gz -C arxiv . && mv submission.tar.gz arxiv
 
 .PHONY: clean
 clean: _clean-main _clean-poster
