@@ -20,7 +20,7 @@ main:
 
 .PHONY: poster
 poster: logo
-	latexmk -pdf $@
+	latexmk -output-directory=_build -pdf $@
 
 .PHONY: arxiv
 arxiv: main
