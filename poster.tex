@@ -1,13 +1,15 @@
 \documentclass[final]{beamer}
 
-% This loads the beamerthemeDAI.sty file, which you can adapt as necessary for your poster.
+% This loads the beamerthemeDAI.sty file, which you can adapt as necessary for
+% your poster.
 \mode<presentation>{
     \usetheme{DAI}
 }
 
-% As a quick reference, these are the possible fontsizes that you can use in the poster:
-%   \tiny, \scriptsize, \footnotesize, \normalsize, \large, \Large, \LARGE, \veryHuge,
-%   \VeryHuge, \VERYHuge
+% As a quick reference, these are the possible fontsizes that you can use in
+% the poster:
+%   \tiny, \scriptsize, \footnotesize, \normalsize, \large, \Large, \LARGE,
+%   \veryHuge, \VeryHuge, \VERYHuge
 
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -66,7 +68,7 @@
     xleftmargin=5pt,
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \graphicspath{{figures/},{images/}}
 
@@ -74,7 +76,9 @@
 \setauthorurl{https://dai.lids.mit.edu}
 \setauthoremail{micahs@mit.edu}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Note [short version of thing]{long version of thing}
 
@@ -83,7 +87,14 @@
 \institute[MIT]{Massachusetts Institute of Technology}
 \date{Date}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Required fix for subfig, see https://tex.stackexchange.com/a/426090
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 

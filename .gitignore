@@ -234,3 +234,4 @@ TSWLatexianTemp*
 images/logos/
 *.deps
 _build/
+arxiv/
