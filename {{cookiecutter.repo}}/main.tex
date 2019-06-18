@@ -15,6 +15,7 @@
 % Other packages
 \usepackage[export]{adjustbox}
 \usepackage{afterpage}
+\usepackage{balance}
 \usepackage{bbding}
 \usepackage{booktabs}
 \usepackage{caption}
@@ -73,14 +74,14 @@
 \lstset{style=mystyle}
 
 \author{
-    Micah J. Smith\\
-    MIT\\
-    \texttt{micahs@mit.edu}
+    {{ cookiecutter.full_name }}\\
+    {{ cookiecutter.institute }}\\
+    \texttt{{{ cookiecutter.email }}}
 }
 
 \date{Date}
 
-\title{Title}
+\title{{{ cookiecutter.title }}}
 
 \begin{document}
 
@@ -94,7 +95,8 @@
 
 Introduction. (See \cite{whitehead1912principia}.)
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plain}
+\balance
 \bibliography{references}
 
 \end{document}
