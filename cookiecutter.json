@@ -8,5 +8,10 @@
   "title": "Title",
   "title_short": "Title",
   "repo": "paper",
-  "overleaf_id": ""
+  "overleaf_id": "",
+  "_copy_without_render": [
+        "references.bib",
+        "mitcolors.sty",
+        "beamerthemeDAI.sty"
+    ]
 }

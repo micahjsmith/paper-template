@@ -1,3 +1,4 @@
+{% raw %}
 \documentclass[conference]{article}
 
 % Graphics packages (must be loaded first)
@@ -73,15 +74,15 @@
 }
 \lstset{style=mystyle}
 
+{% endraw %}
 \author{
     {{ cookiecutter.full_name }}\\
     {{ cookiecutter.institute }}\\
-    \texttt{{{ cookiecutter.email }}}
+    \texttt{ {{ cookiecutter.email }} }
 }
-
+\title{ {{ cookiecutter.title }} }
 \date{Date}
-
-\title{{{ cookiecutter.title }}}
+{% raw %}
 
 \begin{document}
 
@@ -100,3 +101,4 @@ Introduction. (See \cite{whitehead1912principia}.)
 \bibliography{references}
 
 \end{document}
+{% endraw %}

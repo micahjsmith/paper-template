@@ -15,7 +15,7 @@ help:
 
 
 .PHONY: main
-main:
+main: _dirs
 	latexmk -output-directory=_build -deps -deps-out=_build/$@.deps -pdf $@
 
 .PHONY: poster
@@ -47,7 +47,8 @@ logo: _dirs images/logos/MIT-logo-red-gray.eps
 
 .PHONY: _dirs
 _dirs:
-	@test -d images/logos || mkdir -p images/logos
+	-mkdir -p images/logos
+	-mkdir _build
 
 images/logos/MIT-logo-red-gray.eps:
 	@echo "Use your browser to download the zip file into ./images/logos (MIT certificate required):"
