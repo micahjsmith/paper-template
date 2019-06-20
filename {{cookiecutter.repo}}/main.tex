@@ -1,4 +1,7 @@
 {% raw %}
+\RequirePackage[hyphens]{url}
+\RequirePackage[prologue,table]{xcolor}
+
 \documentclass[conference]{article}
 
 % Graphics packages (must be loaded first)
@@ -7,94 +10,57 @@
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 
 % Core packages
-\usepackage{algorithmic}
 \usepackage{amsmath}
-\usepackage{array}
+\usepackage{amsthm}
 \usepackage[hyphens]{url}
-\usepackage[caption=false,font=footnotesize]{subfig}
 
 % Other packages
-\usepackage[export]{adjustbox}
-\usepackage{afterpage}
-\usepackage{balance}
-\usepackage{bbding}
-\usepackage{booktabs}
-\usepackage{caption}
+\usepackage{algorithm2e}       % algorithm environment
+\usepackage{array}
+\usepackage{balance}           % use \balance in first column of last page
+\usepackage{bm}                % \bm{x} for bold math symbols
+\usepackage{booktabs}          % use \toprule, \midrule, \bottomrule in tables
+\usepackage{caption}           % customize captions
 \usepackage{enumitem}
-\usepackage{framed}
-\usepackage{listings}
-\usepackage{multirow}
-\usepackage{placeins}
-\usepackage{tabularx}
-\usepackage{threeparttable}
+\usepackage{listings}          % listings environment
+\usepackage{subcaption}        % use figure + minipage + subcaption to place multiple floats
+\usepackage{tabularx}          % tabularx environment
+\usepackage{textcomp}          % provides additional symbols, incl. upquote
+\usepackage{tikz}
 
 % references
+\usepackage{cite}              % improved handling of citations
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linktoc=all,
-    linktocpage=true,
-    linkcolor=blue,
-    citecolor=blue
-}
-\usepackage{cleveref}
+\usepackage[capitalise]{cleveref}  % use \Cref for intra-document references
 
-% listings setup
+% colors
 \usepackage{color}
 \usepackage{colortbl}
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codeorange}{rgb}{0,0.1,1}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\lstdefinestyle{mystyle}{
-    %prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}, % hook-arrow at the end of break-line
-    basicstyle=\linespread{0.8}\footnotesize\ttfamily,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    commentstyle=\color{codegreen},
-    escapeinside={@\{}{\}@},
-    firstnumber=1,
-    frame=single,
-    keepspaces=true,
-    keywordstyle=\bfseries\color{blue},
-    numbers=left,
-    numbersep=5pt,
-    numberstyle=\small\color{codegray},
-    prebreak={\space\hbox{\textcolor{codegray}{\ensuremath{\hookleftarrow}}}},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    stepnumber=1,
-    stringstyle=\color{red},
-    tabsize=4,
-    upquote=true,
-    xleftmargin=5pt,
-}
-\lstset{style=mystyle}
+\usepackage[prologue,table]{xcolor}
 
+% styling - defined in mscommon.sty
+\usepackage{mscommon}
 {% endraw %}
+
 \author{
     {{ cookiecutter.full_name }}\\
     {{ cookiecutter.institute }}\\
     \texttt{ {{ cookiecutter.email }} }
 }
 \title{ {{ cookiecutter.title }} }
-\date{Date}
+\date{\today}
 {% raw %}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-    Abstract.
-\end{abstract}
+\input{abstract}
+\input{intro}
+\input{related}
 
-\section{Introduction}
-
-Introduction. (See \cite{whitehead1912principia}.)
+\input{conclusion}
+\input{acks}
 
 \bibliographystyle{plain}
 \balance

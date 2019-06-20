@@ -12,6 +12,7 @@
   "_copy_without_render": [
         "references.bib",
         "mitcolors.sty",
-        "beamerthemeDAI.sty"
+        "beamerthemeDAI.sty",
+        "mscommon.sty"
     ]
 }
