@@ -35,12 +35,12 @@ clean: _clean-main _clean-poster
 
 .PHONY: _clean-main
 _clean-main:
-	latexmk -quiet -C main
-	cd _build && latexmk -quiet -C ../main
+	latexmk -quiet -C -pdf main.tex
+	cd _build && latexmk -quiet -C -pdf ../main.tex
 
 .PHONY: _clean-poster
 _clean-poster:
-	latexmk -quiet -C poster
+	latexmk -quiet -C -pdf poster.tex
 
 .PHONY: logo
 logo: _dirs images/logos/MIT-logo-red-gray.eps
