@@ -11,6 +11,7 @@
 
 % Core packages
 \usepackage{amsmath}
+\usepackage{amssymb}           % use \mathbb for math blackboard symbols
 \usepackage{amsthm}
 \usepackage[hyphens]{url}
 
@@ -18,7 +19,7 @@
 \usepackage{algorithm2e}       % algorithm environment
 \usepackage{array}
 \usepackage{balance}           % use \balance in first column of last page
-\usepackage{bm}                % \bm{x} for bold math symbols
+\usepackage{bm}                % use \bm for bold math symbols
 \usepackage{booktabs}          % use \toprule, \midrule, \bottomrule in tables
 \usepackage{caption}           % customize captions
 \usepackage{enumitem}
@@ -30,7 +31,7 @@
 
 % references
 \usepackage{cite}              % improved handling of citations
-\usepackage{hyperref}
+\usepackage{hyperref}          % must be loaded before cleveref
 \usepackage[capitalise]{cleveref}  % use \Cref for intra-document references
 
 % colors
