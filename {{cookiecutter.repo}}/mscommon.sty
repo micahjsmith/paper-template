@@ -19,7 +19,14 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-% listings setup
+% minted setup
+\RequirePackage{minted}
+\setminted{
+  linenos=true,
+  escapeinside={@\{}{\}@},
+  breaklines=true,
+}
+
 \RequirePackage{listings}
 \RequirePackage{textcomp}  % for upquote
 
