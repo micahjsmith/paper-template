@@ -2,7 +2,7 @@
 \RequirePackage[hyphens]{url}
 \RequirePackage[prologue,table]{xcolor}
 
-\documentclass[conference]{article}
+\documentclass{article}
 
 % Graphics packages (must be loaded first)
 \usepackage[pdftex]{graphicx}
@@ -23,16 +23,34 @@
 \usepackage{booktabs}          % use \toprule, \midrule, \bottomrule in tables
 \usepackage{caption}           % customize captions
 \usepackage{enumitem}
-\usepackage{minted}            % minted environment for listings
+\usepackage{lipsum}
 \usepackage{subcaption}        % use figure + minipage + subcaption to place multiple floats
 \usepackage{tabularx}          % tabularx environment
 \usepackage{textcomp}          % provides additional symbols, incl. upquote
 \usepackage{tikz}
+\usepackage{xspace}
 
 % colors
 \usepackage{color}
 \usepackage{colortbl}
 \usepackage[prologue,table]{xcolor}
+
+% minted setup :(
+\newcommand{\EXPECTEDLOCALPAPERBUILD}{1}
+\newcommand{\localbuilddir}{./build}
+\newcommand{\remotebuilddir}{.}
+\newcommand{\builddir}{\remotebuilddir}
+\usepackage{catchfile}
+\usepackage{ifthen}
+\newcommand{\getenv}[2][]{%
+  \CatchFileEdef{\temp}{"|kpsewhich --var-value #2"}{\endlinechar=-1}%
+  \if\relax\detokenize{#1}\relax\temp\else\let#1\temp\fi}
+\getenv[\LOCALPAPERBUILD]{LOCALPAPERBUILD}
+\ifthenelse{\equal{\LOCALPAPERBUILD}{\EXPECTEDLOCALPAPERBUILD}}
+  {\renewcommand{\builddir}{\localbuilddir}}
+  {\renewcommand{\builddir}{\remotebuilddir}}
+
+\usepackage[outputdir=\builddir]{minted}            % minted environment for listings
 
 % styling - defined in mscommon.sty
 \usepackage{mscommon}
@@ -45,12 +63,14 @@
 
 {% endraw %}
 
+\newcommand{\mytitle}{ {{ cookiecutter.title }} }
+
 \author{
     {{ cookiecutter.full_name }}\\
     {{ cookiecutter.institute }}\\
     \texttt{ {{ cookiecutter.email }} }
 }
-\title{ {{ cookiecutter.title }} }
+\title{\mytitle}
 \date{\today}
 {% raw %}
 
