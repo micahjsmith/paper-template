@@ -2,11 +2,21 @@
 
 from textwrap import dedent
 import pathlib
+import re
 import shutil
 import sys
 
 import ply.lex
 
+def get_deps_file():
+    # TODO
+    with open('./latexmkrc', 'r') as f:
+        lines = f.readlines()
+    for line in lines:
+        if 'deps_file' in line:
+            pass
+
+    return pathlib.Path('.', 'build', 'deps')
 
 def remove_trailing_backslash(s):
     if s[-1] == '\\':
@@ -18,7 +28,7 @@ def remove_trailing_backslash(s):
 arxivdir = pathlib.Path('.', 'arxiv')
 
 # open deps file and find matches
-depsfile = pathlib.Path('.', '_build', 'main.deps')
+depsfile = get_deps_file()
 with depsfile.open('r') as f:
     # skip two lines
     for _ in range(2):
@@ -58,7 +68,7 @@ with arxivdir.joinpath('Makefile').open('w') as f:
     f.write(dedent('''\
     .PHONY: main
     main:
-    \tlatexmk -bibtex -pdf main
+    \tlatexmk -shell-escape -bibtex -pdf main
 
     .PHONY: clean
     clean:
