@@ -1,7 +1,10 @@
 .DEFAULT_GOAL := help
-SHELL = /bin/sh
+SHELL := /bin/sh
 
-MAIN = main
+SRCDIR := $(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
+BUILDDIR := $(SRCDIR)/build
+
+export LOCALPAPERBUILD = 1
 
 help:
 	@echo "make help"
@@ -14,44 +17,37 @@ help:
 	@echo "            if you do not have it already."
 
 
-.PHONY: main
-main: _dirs
-	latexmk -output-directory=_build -deps -deps-out=_build/$@.deps -pdf $@
+.PHONY: main poster
+main: main.pdf
+poster: logo poster.pdf
 
-.PHONY: poster
-poster: logo
-	latexmk -output-directory=_build -pdf $@
+.PHONY: FORCE_MAKE
+%.pdf: %.tex _dirs FORCE_MAKE
+	latexmk $<
 
 .PHONY: arxiv
 arxiv: main
 	-rm -rf arxiv
 	mkdir arxiv
+	pip install -r requirements.txt
 	./arxiv.py
 	$(MAKE) -C arxiv main
 	tar -c -z -f submission.tar.gz -C arxiv . && mv submission.tar.gz arxiv
 
 .PHONY: clean
-clean: _clean-main _clean-poster
-
-.PHONY: _clean-main
-_clean-main:
-	latexmk -quiet -C -pdf main.tex
-	cd _build && latexmk -quiet -C -pdf ../main.tex
-
-.PHONY: _clean-poster
-_clean-poster:
-	latexmk -quiet -C -pdf poster.tex
-	cd _build && latexmk -quiet -C -pdf ../poster.tex
+clean:
+	rm -rf $(BUILDDIR)
 
 .PHONY: logo
-logo: _dirs images/logos/MIT-logo-red-gray.eps
+logo: images/logos/MIT-logo-red-gray.eps _dirs
 
 .PHONY: _dirs
 _dirs:
-	-mkdir -p images/logos
-	-mkdir _build
+	-@mkdir -p images/logos
+	-@mkdir -p $(BUILDDIR)
 
 images/logos/MIT-logo-red-gray.eps:
+	$(MAKE) _dirs
 	@echo "Use your browser to download the zip file into ./images/logos (MIT certificate required):"
 	@echo "   -> https://web.mit.edu/graphicidentity/download/logo-sets/MIT-logos-print.zip"
 	@read -p "Press any character to continue when you are done..." -n 1 -s && printf '\n'
@@ -64,4 +60,4 @@ images/logos/MIT-logo-red-gray.eps:
 .PHONY: examples
 examples: main poster
 	test -d examples || mkdir examples
-	cp main.pdf poster.pdf examples
+	cp $(BUILDDIR)/{main,poster}.pdf examples
