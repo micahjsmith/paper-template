@@ -232,6 +232,5 @@ TSWLatexianTemp*
 # other
 .DS_Store
 images/logos/
-*.deps
-_build/
+build/
 arxiv/
