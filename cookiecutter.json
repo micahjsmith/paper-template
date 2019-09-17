@@ -13,6 +13,7 @@
         "references.bib",
         "mitcolors.sty",
         "beamerthemeDAI.sty",
-        "mscommon.sty"
+        "mscommon.sty",
+        "latexmkrc"
     ]
 }
