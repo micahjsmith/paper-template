@@ -10,56 +10,25 @@
 \SetAlCapSkip{1ex}
 \DontPrintSemicolon
 
-% color setup
-\RequirePackage{xcolor}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codeorange}{rgb}{0,0.1,1}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
 % minted setup
 \RequirePackage{minted}
+\RequirePackage{textcomp}  % for upquote
 \setminted{
-  linenos=true,
+  fontsize=\scriptsize,
+  frame=single,
+  linenos=false,
   escapeinside={@\{}{\}@},
   breaklines=true,
 }
-
-\RequirePackage{listings}
-\RequirePackage{textcomp}  % for upquote
-
-\lstdefinestyle{mystyle}{
-    %prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}, % hook-arrow at the end of break-line
-    basicstyle=\linespread{0.8}\footnotesize\ttfamily,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    commentstyle=\color{codegreen},
-    escapeinside={@\{}{\}@},
-    firstnumber=1,
-    frame=single,
-    keepspaces=true,
-    keywordstyle=\bfseries\color{blue},
-    numbers=left,
-    numbersep=5pt,
-    numberstyle=\small\color{codegray},
-    prebreak={\space\hbox{\textcolor{codegray}{\ensuremath{\hookleftarrow}}}},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    stepnumber=1,
-    stringstyle=\color{red},
-    tabsize=4,
-    upquote=true,
-    xleftmargin=5pt,
+\setminted[python]{
+	breakafter={(},
+	breakaftersymbolpre={},
+	breakindentnchars=4,
 }
-\lstset{style=mystyle}
 
-% hyperref setup
+\RequirePackage{varioref}
 \RequirePackage{hyperref}
-
+\RequirePackage[capitalise]{cleveref}
 \hypersetup{
     colorlinks=true,
     linktoc=all,
@@ -73,3 +42,5 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\E}{\mathbb{E}}
 \newcommand{\R}{\mathbb{R}}
+
+\newtheorem{definition}{Definition}
