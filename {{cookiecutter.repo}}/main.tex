@@ -64,12 +64,17 @@
 
 {% endraw %}
 
-\newcommand{\mytitle}{ {{ cookiecutter.title }} }
+\newcommand{\mytitle}{{ '{' }}{{ cookiecutter.title }}{{ '}' }}
+
+\hypersetup{                   % in addition to setup in mscommon
+  pdftitle = {\mytitle},
+  pdfauthor = {{ '{' }}{{ cookiecutter.full_name }}{{ '}' }}
+}
 
 \author{
     {{ cookiecutter.full_name }}\\
     {{ cookiecutter.institute }}\\
-    \texttt{ {{ cookiecutter.email }} }
+    \texttt{{ '{' }}{{ cookiecutter.email }}{{ '}' }}
 }
 \title{\mytitle}
 \date{\today}
