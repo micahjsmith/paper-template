@@ -230,8 +230,10 @@ TSWLatexianTemp*
 *.sta
 
 # other
-.DS_Store
 images/logos/
 build/
 arxiv/
-**/Icon*
+
+# garbage
+.DS_Store
+Icon[]
