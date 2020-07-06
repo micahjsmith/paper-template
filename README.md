@@ -5,7 +5,7 @@ My template for LaTeX papers.
 Features include:
 - template for latex paper
 - template for beamer poster
-- easy compilation management with Make/latexmk
+- easy compilation management with pyinvoke/latexmk
 - automatic preparation of submission file for arXiv
 
 ## Usage
