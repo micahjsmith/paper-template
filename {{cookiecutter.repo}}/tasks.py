@@ -94,3 +94,15 @@ def examples(c):
 def clean(c):
     """Clean LaTeX build files"""
     c.run(f"rm -rf {BUILDDIR}")
+
+
+@task
+def push(c):
+    """Push to remote"""
+    c.run("git push origin master")
+
+
+@task
+def pull(c):
+    """Pull from remote"""
+    c.run("git pull origin master")

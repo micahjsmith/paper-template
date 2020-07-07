@@ -10,14 +10,23 @@ Features include:
 
 ## Usage
 
-Install cookiecutter.
+0. (Optional) create a blank project on overleaf, delete the provided tex file, and copy the
+   project ID (last segment of URL).
 
-```
-pip install cookiecutter
-```
+1. Install cookiecutter.
 
-Render the template by following the prompts.
+    ```
+    pip install cookiecutter
+    ```
 
-```
-cookiecutter gh:micahjsmith/paper-template
-```
+2. Render the template by following the prompts.
+
+    ```
+    cookiecutter gh:micahjsmith/paper-template
+    ```
+
+3. Install project dependencies.
+
+    ```
+    pip install -r requirements.txt
+    ```
