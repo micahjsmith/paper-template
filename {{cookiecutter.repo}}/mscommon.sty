@@ -14,16 +14,16 @@
 \RequirePackage{minted}
 \RequirePackage{textcomp}  % for upquote
 \setminted{
-  fontsize=\scriptsize,
+	fontsize=\scriptsize,
   frame=single,
-  linenos=false,
+	linenos=false,
   escapeinside={@\{}{\}@},
-  breaklines=true,
+	breaklines=true,
 }
 \setminted[python]{
 	breakafter={(},
 	breakaftersymbolpre={},
-	breakindentnchars=4,
+% 	breakindentnchars=4,
 }
 
 \RequirePackage{varioref}
@@ -38,6 +38,7 @@
 }
 
 % math setup
+\RequirePackage{amsmath}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\E}{\mathbb{E}}

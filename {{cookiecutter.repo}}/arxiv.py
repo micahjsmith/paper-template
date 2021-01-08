@@ -19,6 +19,23 @@ def get_deps_file():
     return pathlib.Path('.', 'build', 'deps')
 
 
+def find_matching_deps(depsfile: pathlib.Path):
+    deps = []
+    # open deps file and find matches
+    with depsfile.open('r') as f:
+        # skip two lines
+        for _ in range(2):
+            f.readline()
+
+        while True:
+            line = f.readline().strip()
+            if line.startswith('#===End'):
+                break
+            if line[0] != '/':
+                deps.append(remove_trailing_backslash(line))
+    return deps
+
+
 def remove_trailing_backslash(s):
     if s[-1] == '\\':
         return s[:-1]
@@ -159,30 +176,7 @@ def main():
 
     # open deps file and find matches
     depsfile = get_deps_file()
-    with depsfile.open('r') as f:
-        # skip two lines
-        for _ in range(2):
-            f.readline()
-
-        # now skip until path doesn't start with leading /
-        while True:
-            line = f.readline()
-            line = line.strip()
-            if line[0] != '/':
-                break
-
-        deps = [remove_trailing_backslash(line)]
-
-        # now read until #===End
-        while True:
-            line = f.readline()
-            line = line.strip()
-            if line.startswith('#===End'):
-                break
-            else:
-                deps.append(remove_trailing_backslash(line))
-
-
+    deps = find_matching_deps(depsfile)
     assert deps
 
 

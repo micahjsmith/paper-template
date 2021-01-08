@@ -1,3 +1,4 @@
 invocations
 invoke
 ply
+pygments

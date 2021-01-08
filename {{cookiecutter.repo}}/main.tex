@@ -14,29 +14,32 @@
 \usepackage{amsmath}
 \usepackage{amssymb}           % use \mathbb for math blackboard symbols
 \usepackage{amsthm}
-\usepackage[hyphens]{url}
-
-% Other packages
-\usepackage{algorithm2e}       % algorithm environment
-\usepackage{array}
-\usepackage{balance}           % use \balance in first column of last page
-\usepackage{bm}                % use \bm for bold math symbols
 \usepackage{booktabs}          % use \toprule, \midrule, \bottomrule in tables
 \usepackage{caption}           % customize captions
 \usepackage{enumitem}
-\usepackage{lipsum}
-\usepackage{subcaption}        % use figure + minipage + subcaption to place multiple floats
-\usepackage{tabularx}          % tabularx environment
-\usepackage{textcomp}          % provides additional symbols, incl. upquote
-\usepackage{tikz}
-\usepackage{xspace}
+\usepackage{textcomp}          % additional symbols, incl. upquote
+\usepackage{xspace}            % for \xspace
+\usepackage[hyphens]{url}
+
+% Optional packages
+% \usepackage{algorithm2e}       % algorithm environment
+% \usepackage{array}
+% \usepackage{balance}           % use \balance in first column of last page
+% \usepackage{bbding}            % for \Checkmark
+% \usepackage{bm}                % use \bm for bold math symbols
+% \usepackage{colortbl}
+% \usepackage{fancyvrb}          % better Verbatim
+% \usepackage{lipsum}
+% \usepackage{makecell}          % line break in table cell
+% \usepackage{subcaption}        % use figure + minipage + subcaption to place multiple floats
+% \usepackage{tabularx}          % tabularx environment
+% \usepackage{tikz}
 
 % colors
 \usepackage{color}
-\usepackage{colortbl}
 \usepackage[prologue,table]{xcolor}
 
-% minted setup :(
+% minted setup?? :(
 \newcommand{\EXPECTEDLOCALPAPERBUILD}{1}
 \newcommand{\localbuilddir}{./build}
 \newcommand{\remotebuilddir}{.}
@@ -51,6 +54,7 @@
   {\renewcommand{\builddir}{\localbuilddir}}
   {\renewcommand{\builddir}{\remotebuilddir}}
 
+% need to first run with outputdir=./build, then move _minted-main and ./build/main.pyg to .
 \usepackage[outputdir=\builddir]{minted}            % minted environment for listings
 
 % styling - defined in mscommon.sty
