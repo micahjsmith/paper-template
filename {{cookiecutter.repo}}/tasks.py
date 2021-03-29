@@ -74,6 +74,7 @@ def arxiv(c):
     c.run("./arxiv.py")
     with c.cd("arxiv"):
         c.run("make main")
+        c.run("make clean")
     c.run("tar -c -z -f submission.tar.gz -C arxiv .")
     c.run("mv submission.tar.gz arxiv")
 
